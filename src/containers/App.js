@@ -1,5 +1,7 @@
 import React from 'react'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import Navbar from '../components/Navbar/Navbar'
+import AppBar from '../components/Navbar/AppBar'
 import BottomNav from '../components/Navbar/BottomNav'
 import { Router } from 'react-router-dom'
 import history from '../routes/History'
@@ -10,6 +12,14 @@ import { MaterialSnackbar } from '../components/Snackbar/Snackbar'
 import Loader from '../components/Loader/Loader'
 import './App.scss'
 import { connect } from 'react-redux'
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: '#FF4500',
+    },
+  },
+})
 
 class App extends React.Component {
   // App contains routes and also wrapped with snackbar and intl for localization
@@ -23,10 +33,12 @@ class App extends React.Component {
         >
           {loading ? <Loader /> : null}
           <Router history={history}>
-            <MaterialSnackbar />
-            <Navbar />
-            {Routes}
-            <BottomNav />
+            <MuiThemeProvider theme={theme}>
+              <MaterialSnackbar />
+              <AppBar />
+              {Routes}
+              <BottomNav />
+            </MuiThemeProvider>
           </Router>
         </div>
       </IntlProvider>

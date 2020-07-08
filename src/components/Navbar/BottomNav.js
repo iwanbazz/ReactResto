@@ -1,14 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard'
 import PersonIcon from '@material-ui/icons/Person'
+import { useSelector } from 'react-redux'
+import messages from './../../assets/Local/messages'
 
 const useStyles = makeStyles({
   root: {
+    '& .Mui-selected': {
+      color: '#FF4500',
+    },
     width: '100%',
     position: 'fixed',
     bottom: 0,
@@ -21,26 +27,48 @@ const useStyles = makeStyles({
 })
 
 export default function BottomNav() {
+  const lang = useSelector((state) => state.lang)
+  const message = messages[lang]
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
   return (
     <BottomNavigation
       value={value}
-      onChange={(event, newValue) => {
+      onChange={(_event, newValue) => {
         setValue(newValue)
       }}
       showLabels
       className={classes.root}
     >
       <BottomNavigationAction
-        fontSize="small"
-        label="Menu"
+        component={Link}
+        to="/"
+        value="home"
+        label={message.bottom.menu}
         icon={<RestaurantIcon />}
       />
-      <BottomNavigationAction label="Orders" icon={<ShoppingBasketIcon />} />
-      <BottomNavigationAction label="Promotions" icon={<CardGiftcardIcon />} />
-      <BottomNavigationAction label="Account" icon={<PersonIcon />} />
+      <BottomNavigationAction
+        component={Link}
+        to="/orders"
+        value="orders"
+        label={message.bottom.orders}
+        icon={<ShoppingCartIcon />}
+      />
+      <BottomNavigationAction
+        component={Link}
+        to="/promotions"
+        value="promotions"
+        label={message.bottom.promotions}
+        icon={<CardGiftcardIcon />}
+      />
+      <BottomNavigationAction
+        component={Link}
+        to="/profile"
+        value="profile"
+        label={message.bottom.account}
+        icon={<PersonIcon />}
+      />
     </BottomNavigation>
   )
 }
