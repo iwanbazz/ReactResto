@@ -1,6 +1,5 @@
 import React from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import Navbar from '../components/Navbar/Navbar'
 import AppBar from '../components/Navbar/AppBar'
 import BottomNav from '../components/Navbar/BottomNav'
 import { Router } from 'react-router-dom'

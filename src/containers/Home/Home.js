@@ -3,7 +3,6 @@ import messages from './../../assets/Local/messages'
 import RecipeReviewCard from '../../components/Cards/RecipeReviewCard'
 import TabsButtonAuto from '../../components/Controls/Tabs/CategoryTabs'
 import { connect } from 'react-redux'
-import { FormHelperText } from '@material-ui/core'
 
 class Home extends React.Component {
   render() {

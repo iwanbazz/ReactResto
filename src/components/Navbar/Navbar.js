@@ -2,7 +2,6 @@ import React from 'react'
 import messages from './../../assets/Local/messages'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentLang } from '../../store/actions/Lang'
-import { Link } from 'react-router-dom'
 import { LangBtn } from '../Controls/Button/LangButton'
 import { CartBtn } from '../Controls/Button/CartButton'
 
