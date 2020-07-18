@@ -1,14 +1,14 @@
 import React from 'react'
-import messages from './../../assets/Local/messages'
+import messages from '../assets/Local/messages'
 import { connect } from 'react-redux'
 
-class Promotions extends React.Component {
+class Profile extends React.Component {
   render() {
     const { lang } = this.props
     const message = messages[lang]
     return (
       <div className="container my-5">
-        <p>{message.promotions}</p>
+        <p>{message.profile}</p>
       </div>
     )
   }
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(Promotions)
+export default connect(mapStateToProps, null)(Profile)

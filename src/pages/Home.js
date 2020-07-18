@@ -8,11 +8,11 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 
-import Query from '../../components/Query'
-import CATEGORIES_QUERY from '../../queries/category/categories'
+import Query from '../components/Query'
+import CATEGORIES_QUERY from '../queries/category/categories'
 
-import messages from './../../assets/Local/messages'
-import RecipeReviewCard from '../../components/Cards/RecipeReviewCard'
+import messages from '../assets/Local/messages'
+import RecipeReviewCard from '../components/RecipeReviewCard'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -69,25 +69,23 @@ function TabsButtonAuto() {
         {({ data: { categories } }) => {
           return (
             <div>
-              <AppBar position="static" color="default">
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  variant="scrollable"
-                  scrollButtons="auto"
-                  aria-label="scrollable auto tabs example"
-                >
-                  {categories.map((category, i) => {
-                    return <Tab label={category.name} {...a11yProps(i)} />
-                  })}
-                </Tabs>
-              </AppBar>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                {categories.map((category, i) => {
+                  return <Tab label={category.name} {...a11yProps(i)} />
+                })}
+              </Tabs>
               {categories.map((category, i) => {
                 return (
                   <TabPanel value={value} index={i}>
-                    {category.name}
+                    {category.products.title}
                   </TabPanel>
                 )
               })}

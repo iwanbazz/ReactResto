@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import firebaseApp from '../../utils/Firebase'
+import firebaseApp from '../utils/Firebase'
 import Cookies from 'universal-cookie'
-import { Btn } from '../../components/Controls/Button/Button'
-import History from '../../routes/History'
+import { Btn } from '../components/Controls/Button/Button'
+import History from '../routes/History'
 class Login extends React.Component {
   // this method is only to trigger route guards , remove and use your own logic
   handleLogin = () => {

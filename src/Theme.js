@@ -1,7 +1,7 @@
 import React from 'react'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import App from './containers/App'
+import App from './pages/App'
 
 function ThemeApp() {
   const theme = createMuiTheme({

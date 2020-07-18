@@ -1,5 +1,5 @@
 import React from 'react'
-import messages from './../../assets/Local/messages'
+import messages from '../assets/Local/messages'
 import { connect } from 'react-redux'
 
 class Orders extends React.Component {
