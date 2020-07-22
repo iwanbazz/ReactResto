@@ -69,19 +69,21 @@ function TabsButtonAuto() {
         {({ data: { categories } }) => {
           return (
             <div>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="primary"
-                textColor="primary"
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-              >
-                {categories.map((category, i) => {
-                  return <Tab label={category.name} {...a11yProps(i)} />
-                })}
-              </Tabs>
+              <AppBar position="static" color="default">
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  variant="scrollable"
+                  scrollButtons="auto"
+                  aria-label="scrollable auto tabs example"
+                >
+                  {categories.map((category, i) => {
+                    return <Tab label={category.name} {...a11yProps(i)} />
+                  })}
+                </Tabs>
+              </AppBar>
               {categories.map((category, i) => {
                 return (
                   <TabPanel value={value} index={i}>
@@ -117,9 +119,6 @@ class Home extends React.Component {
             justifyContent: 'space-between',
           }}
         >
-          <RecipeReviewCard />
-          <RecipeReviewCard />
-          <RecipeReviewCard />
           <RecipeReviewCard />
         </div>
       </div>
